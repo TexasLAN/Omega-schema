@@ -32,9 +32,12 @@ CREATE TABLE `applications` (
   `q5` text,
   `q6` text,
   `user_id` mediumint(9) DEFAULT NULL,
+  `id` mediumint(9) NOT NULL AUTO_INCREMENT,
+  `status` mediumint(9) DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
-  CONSTRAINT `applications_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  CONSTRAINT `applications_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -50,11 +53,11 @@ CREATE TABLE `users` (
   `email` varchar(128) NOT NULL,
   `fname` varchar(128) NOT NULL,
   `lname` varchar(128) NOT NULL,
-  `member` tinyint(1) DEFAULT NULL,
+  `member_status` mediumint(9) DEFAULT NULL,
   `admin` tinyint(1) DEFAULT NULL,
   `id` mediumint(9) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -66,4 +69,4 @@ CREATE TABLE `users` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-01-17 16:56:33
+-- Dump completed on 2015-01-17 21:10:46
