@@ -74,6 +74,21 @@ CREATE TABLE `reviews` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `roles`
+--
+
+DROP TABLE IF EXISTS `roles`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `roles` (
+  `user_id` mediumint(9) NOT NULL,
+  `role` varchar(64) NOT NULL,
+  PRIMARY KEY (`user_id`,`role`),
+  CONSTRAINT `roles_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `settings`
 --
 
@@ -101,9 +116,7 @@ CREATE TABLE `users` (
   `fname` varchar(128) NOT NULL,
   `lname` varchar(128) NOT NULL,
   `member_status` mediumint(9) DEFAULT NULL,
-  `admin` tinyint(1) DEFAULT NULL,
   `id` mediumint(9) NOT NULL AUTO_INCREMENT,
-  `reviewer` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -117,4 +130,4 @@ CREATE TABLE `users` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-01-21  2:04:28
+-- Dump completed on 2015-01-23  0:04:58
