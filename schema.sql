@@ -266,6 +266,7 @@ CREATE TABLE `users` (
   `lname` varchar(128) NOT NULL,
   `member_status` mediumint(9) DEFAULT NULL,
   `id` mediumint(9) NOT NULL AUTO_INCREMENT,
+  `token` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -279,4 +280,4 @@ CREATE TABLE `users` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-02-23 15:24:47
+-- Dump completed on 2015-02-25 15:36:23
